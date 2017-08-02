@@ -17,7 +17,6 @@
 		4D98C5BE1EDE942800C16266 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98C5BB1EDE942800C16266 /* UITableView+SDAutoTableViewCellHeight.m */; };
 		4D98C5BF1EDE942800C16266 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98C5BD1EDE942800C16266 /* UIView+SDAutoLayout.m */; };
 		4D98C5C31EDE96A100C16266 /* GZTimeLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D98C5C21EDE96A100C16266 /* GZTimeLineModel.m */; };
-		4D98C5C51EDE9BEE00C16266 /* GZTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D98C5C41EDE9BEE00C16266 /* GZTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		4D98C5C01EDE95EE00C16266 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		4D98C5C11EDE96A100C16266 /* GZTimeLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZTimeLineModel.h; sourceTree = "<group>"; };
 		4D98C5C21EDE96A100C16266 /* GZTimeLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZTimeLineModel.m; sourceTree = "<group>"; };
-		4D98C5C41EDE9BEE00C16266 /* GZTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				4D98C5A41EDE8E4700C16266 /* ViewController.m */,
 				4D98C5B41EDE911600C16266 /* GZTableViewCell.h */,
 				4D98C5B51EDE911600C16266 /* GZTableViewCell.m */,
-				4D98C5C41EDE9BEE00C16266 /* GZTableViewCell.xib */,
 				4D98C5C11EDE96A100C16266 /* GZTimeLineModel.h */,
 				4D98C5C21EDE96A100C16266 /* GZTimeLineModel.m */,
 				4D98C5A61EDE8E4700C16266 /* Main.storyboard */,
@@ -174,7 +171,6 @@
 				4D98C5AD1EDE8E4700C16266 /* LaunchScreen.storyboard in Resources */,
 				4D98C5AA1EDE8E4700C16266 /* Assets.xcassets in Resources */,
 				4D98C5A81EDE8E4700C16266 /* Main.storyboard in Resources */,
-				4D98C5C51EDE9BEE00C16266 /* GZTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +346,7 @@
 				4D98C5B31EDE8E4700C16266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

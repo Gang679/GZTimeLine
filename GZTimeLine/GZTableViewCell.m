@@ -10,21 +10,45 @@
 #import "SDAutoLayout.h"
 
 @interface GZTableViewCell()
-@property (strong, nonatomic) IBOutlet UIImageView *GZIma;
-@property (strong, nonatomic) IBOutlet UILabel *TimeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *ContentLabel;
+@property (strong, nonatomic)  UIImageView *GZIma;
+@property (strong, nonatomic)  UILabel *TimeLabel;
+@property (strong, nonatomic)  UILabel *ContentLabel;
 
 
 @end
 @implementation GZTableViewCell
 
-- (void)awakeFromNib {
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self sss];
+    }
+    return self ;
+}
+- (void)sss {
     [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor whiteColor];
+    _point = [[UIView alloc]init];
+    _GZTopLine = [[UIView alloc]init];
+    _GZBoyttomLine = [[UIView alloc]init];
+    _GZIma = [[UIImageView alloc]init];
+    _TimeLabel = [[UILabel alloc]init];
+    _ContentLabel = [[UILabel alloc]init];
+    [self.contentView addSubview:_point];
+    [self.contentView addSubview:_GZTopLine];
+    [self.contentView addSubview:_GZBoyttomLine];
+    [self.contentView addSubview:_GZIma];
+    [self.contentView addSubview:_TimeLabel];
+    [self.contentView addSubview:_ContentLabel];
+    
     self.point.sd_layout.topSpaceToView(self.contentView, 20).leftSpaceToView(self.contentView, 5).widthIs(8).heightEqualToWidth();
     self.point.sd_cornerRadius = @(4);
+    self.point.backgroundColor = [UIColor redColor];
     
-    self.GZLine.sd_layout.topEqualToView(self.contentView).centerXEqualToView(self.point).widthIs(1).bottomSpaceToView(self.contentView, 0);
+    self.GZTopLine.sd_layout.topEqualToView(self.contentView).centerXEqualToView(self.point).widthIs(2).bottomEqualToView(self.point);
+    self.GZTopLine.backgroundColor = [UIColor orangeColor];
+    self.GZBoyttomLine.sd_layout.topEqualToView(self.point).centerXEqualToView(self.point).widthIs(2).bottomSpaceToView(self.contentView, 0);
+    self.GZBoyttomLine.backgroundColor = [UIColor orangeColor];
     
     self.GZIma.sd_layout.topSpaceToView(self.contentView , 10).leftSpaceToView(self.point, 3).bottomSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10);
     _GZIma.image = [UIImage imageNamed:@"WechatIMG3"];

@@ -10,7 +10,8 @@
 #import "GZTimeLineModel.h"
 
 @interface GZTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIView *point;
-@property (strong, nonatomic) IBOutlet UIView *GZLine;
+@property (strong, nonatomic)  UIView *point;
+@property (strong, nonatomic)  UIView *GZTopLine;
+@property (strong, nonatomic) UIView *GZBoyttomLine;
 @property (nonatomic, strong)GZTimeLineModel *model;
 @end
