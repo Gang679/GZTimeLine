@@ -49,18 +49,19 @@ static NSString *rell = @"cells";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GZTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:rell];
-    if (!cell) {
-        cell = [[GZTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rell];
-        //        cell = [[[NSBundle mainBundle] loadNibNamed:@"GZTableViewCell" owner:nil options:nil] firstObject];
-        
-    }
+
     if (indexPath.row == 0) {
-        cell.GZTopLine.backgroundColor = [UIColor clearColor];
-    }else if (indexPath.row == self.TimeLineData.count - 1){
-        cell.GZBoyttomLine.backgroundColor = [UIColor clearColor];
+        cell.GZTopLine.sd_layout.topEqualToView(cell.point).leftSpaceToView(cell.contentView,8.5).widthIs(1).bottomSpaceToView(cell.point, 0);
+        
+        cell.GZBoyttomLine.sd_layout.topEqualToView(cell.point).leftSpaceToView(cell.contentView,8.5).widthIs(1).bottomSpaceToView(cell.contentView, 0);
+
+    }
+    if (indexPath.row == self.TimeLineData.count - 1){
+        cell.GZTopLine.sd_layout.topEqualToView(cell.contentView).leftSpaceToView(cell.contentView,8.5).widthIs(1).bottomSpaceToView(cell.point, 0);
+        cell.GZBoyttomLine.sd_layout.topEqualToView(cell.point).leftSpaceToView(cell.contentView,8.5).widthIs(1).heightIs(0);
+
     }
     cell.model = self.TimeLineData[indexPath.row];
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

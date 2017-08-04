@@ -37,9 +37,10 @@
     [self.contentView addSubview:_point];
     [self.contentView addSubview:_GZTopLine];
     [self.contentView addSubview:_GZBoyttomLine];
-    [self.contentView addSubview:_GZIma];
     [self.contentView addSubview:_TimeLabel];
     [self.contentView addSubview:_ContentLabel];
+    [self.contentView addSubview:_GZIma];
+
     
     self.point.sd_layout.topSpaceToView(self.contentView, 20).leftSpaceToView(self.contentView, 5).widthIs(8).heightEqualToWidth();
     self.point.sd_cornerRadius = @(4);
@@ -49,15 +50,14 @@
     self.GZTopLine.backgroundColor = [UIColor orangeColor];
     self.GZBoyttomLine.sd_layout.topEqualToView(self.point).centerXEqualToView(self.point).widthIs(2).bottomSpaceToView(self.contentView, 0);
     self.GZBoyttomLine.backgroundColor = [UIColor orangeColor];
-    
+    self.TimeLabel.sd_layout.centerYEqualToView(self.point).leftSpaceToView(self.contentView, 35).rightSpaceToView(self.contentView, 15).heightIs(20);
+    self.ContentLabel.sd_layout.topSpaceToView(self.TimeLabel, 15).leftEqualToView(self.TimeLabel).rightSpaceToView(self.contentView, 15).autoHeightRatio(0);
+    self.ContentLabel.numberOfLines = 0 ;
     self.GZIma.sd_layout.topSpaceToView(self.contentView , 10).leftSpaceToView(self.point, 3).bottomSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10);
     _GZIma.image = [UIImage imageNamed:@"WechatIMG3"];
     // 指定为拉伸模式，伸缩后重新赋值
     
     self.GZIma.image = [self.GZIma.image stretchableImageWithLeftCapWidth:20 topCapHeight:30];
-    
-    self.TimeLabel.sd_layout.centerYEqualToView(self.point).leftSpaceToView(self.contentView, 35).rightSpaceToView(self.contentView, 15).heightIs(20);
-    self.ContentLabel.sd_layout.topSpaceToView(self.TimeLabel, 15).leftEqualToView(self.TimeLabel).rightSpaceToView(self.contentView, 15).autoHeightRatio(0);
 }
 
 -(void)setModel:(GZTimeLineModel *)model{
