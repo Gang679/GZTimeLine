@@ -10,54 +10,37 @@
 #import "SDAutoLayout.h"
 
 @interface GZTableViewCell()
-@property (strong, nonatomic)  UIImageView *GZIma;
-@property (strong, nonatomic)  UILabel *TimeLabel;
-@property (strong, nonatomic)  UILabel *ContentLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *GZIma;
+@property (strong, nonatomic) IBOutlet UILabel *TimeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *ContentLabel;
 
 
 @end
 @implementation GZTableViewCell
 
-
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self sss];
-    }
-    return self ;
-}
-- (void)sss {
+- (void)awakeFromNib {
     [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor whiteColor];
-    _point = [[UIView alloc]init];
-    _GZTopLine = [[UIView alloc]init];
-    _GZBoyttomLine = [[UIView alloc]init];
-    _GZIma = [[UIImageView alloc]init];
-    _TimeLabel = [[UILabel alloc]init];
-    _ContentLabel = [[UILabel alloc]init];
-    [self.contentView addSubview:_point];
-    [self.contentView addSubview:_GZTopLine];
-    [self.contentView addSubview:_GZBoyttomLine];
-    [self.contentView addSubview:_TimeLabel];
-    [self.contentView addSubview:_ContentLabel];
-    [self.contentView addSubview:_GZIma];
-
     
     self.point.sd_layout.topSpaceToView(self.contentView, 20).leftSpaceToView(self.contentView, 5).widthIs(8).heightEqualToWidth();
-    self.point.sd_cornerRadius = @(4);
-    self.point.backgroundColor = [UIColor redColor];
     
-    self.GZTopLine.sd_layout.topEqualToView(self.contentView).centerXEqualToView(self.point).widthIs(2).bottomEqualToView(self.point);
-    self.GZTopLine.backgroundColor = [UIColor orangeColor];
-    self.GZBoyttomLine.sd_layout.topEqualToView(self.point).centerXEqualToView(self.point).widthIs(2).bottomSpaceToView(self.contentView, 0);
-    self.GZBoyttomLine.backgroundColor = [UIColor orangeColor];
-    self.TimeLabel.sd_layout.centerYEqualToView(self.point).leftSpaceToView(self.contentView, 35).rightSpaceToView(self.contentView, 15).heightIs(20);
-    self.ContentLabel.sd_layout.topSpaceToView(self.TimeLabel, 15).leftEqualToView(self.TimeLabel).rightSpaceToView(self.contentView, 15).autoHeightRatio(0);
-    self.ContentLabel.numberOfLines = 0 ;
+    self.point.sd_cornerRadius = @(4);
+
+    self.topLine.sd_layout.topEqualToView(self.contentView).leftSpaceToView(self.contentView,8.5).widthIs(1).bottomSpaceToView(self.point, 0);
+    
+    self.GZLine.sd_layout.topSpaceToView(self.point,0).leftSpaceToView(self.contentView,8.5).widthIs(1).bottomSpaceToView(self.contentView, 0);
+    
+    
     self.GZIma.sd_layout.topSpaceToView(self.contentView , 10).leftSpaceToView(self.point, 3).bottomSpaceToView(self.contentView, 10).rightSpaceToView(self.contentView, 10);
     _GZIma.image = [UIImage imageNamed:@"WechatIMG3"];
+    
     // 指定为拉伸模式，伸缩后重新赋值
     
     self.GZIma.image = [self.GZIma.image stretchableImageWithLeftCapWidth:20 topCapHeight:30];
+    
+    self.TimeLabel.sd_layout.centerYEqualToView(self.point).leftSpaceToView(self.contentView, 35).rightSpaceToView(self.contentView, 15).heightIs(20);
+    
+    self.ContentLabel.sd_layout.topSpaceToView(self.TimeLabel, 15).leftEqualToView(self.TimeLabel).rightSpaceToView(self.contentView, 15).autoHeightRatio(0);
 }
 
 -(void)setModel:(GZTimeLineModel *)model{
